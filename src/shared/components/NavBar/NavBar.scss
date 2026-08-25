@@ -1,0 +1,133 @@
+@use "@/shared/styles/abstracts/mixins" as m;
+
+.nav {
+  width: 100%;
+  position: relative;
+
+  &--desktop {
+    display: none;
+  }
+
+  &--mobile {
+    @include m.flex(column, flex-start);
+    position: absolute;
+    background: var(--color-neutral-0);
+    gap: var(--size-4);
+    height: 100%;
+    padding-inline-start: var(--size-4);
+  }
+
+  &--dialog {
+    width: min(60vw, 20rem);
+    height: 100vh;
+    border: none;
+    margin-inline-start: auto;
+    background: none;
+
+    &::backdrop {
+      background: black;
+      opacity: 0.6;
+    }
+  }
+
+  &__hamburger {
+    order: -1;
+    position: absolute;
+    right: var(--size-4);
+    cursor: pointer;
+    border: none;
+    background: transparent;
+    color: var(--color-neutral-3);
+  }
+
+  &__links {
+    @include m.flex(column);
+    width: 100%;
+  }
+
+  &__link {
+    letter-spacing: 0.1rem;
+    padding-block: calc(var(--size-2) - 0.5rem);
+    background: transparent;
+    border: none;
+    text-decoration: none;
+    color: var(--color-neutral-4);
+    text-shadow: 0 0 0.2rem var(--color-neutral-0);
+  }
+
+  &__index {
+    display: none;
+  }
+
+  &__top {
+    @include m.flex(row);
+    width: 100%;
+  }
+
+  &__logo {
+    width: var(--size-4);
+    height: auto;
+    color: var(--color-neutral-0);
+    text-shadow: 0 0 0.2rem var(--color-neutral-0);
+  }
+
+  &__item {
+    @include m.flex(row, flex-start, flex-start);
+    width: 100%;
+    list-style: none;
+    text-align: center;
+  }
+
+  &__close-button {
+    background: none;
+    border: none;
+    color: var(--color-neutral-4);
+    cursor: pointer;
+    position: absolute;
+    top: var(--size-2);
+    right: var(--size-2);
+    width: var(--size-4);
+
+    &__icon {
+      width: 100%;
+    }
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .nav {
+    &--mobile {
+      display: none;
+    }
+
+    &--desktop {
+      @include m.flex(row);
+      gap: var(--size-2);
+      width: auto;
+    }
+
+    &__hamburger {
+      display: none;
+    }
+
+    &__links {
+      flex-direction: row;
+      gap: var(--size-2);
+      width: auto;
+      overflow: hidden;
+    }
+  }
+}
+
+@media screen and (min-width: 1200px) {
+  .nav {
+    &__logo {
+      margin-block: 0;
+    }
+
+    &__links {
+      gap: var(--size-4);
+      border-radius: 10rem 0 0 10rem;
+    }
+  }
+}

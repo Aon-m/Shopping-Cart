@@ -1,0 +1,18 @@
+@use "@/shared/styles/abstracts/breakpoints" as bp;
+
+.mobile-hidden {
+  display: none;
+
+  @include bp.up(tablet) {
+    display: initial;
+  }
+}
+.hidden {
+  display: none;
+}
+.invisible {
+  visibility: hidden;
+}
+.wide {
+  width: 100%;
+}

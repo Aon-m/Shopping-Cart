@@ -1,0 +1,34 @@
+@use "@/shared/styles/abstracts/breakpoints" as bp;
+@use "sass:map";
+
+.flex {
+  display: flex;
+
+  &-row {
+    flex-direction: row;
+  }
+
+  &-column {
+    flex-direction: column;
+  }
+
+  @each $name in map.keys(bp.$breakpoints) {
+    &-#{$name}-row {
+      flex-direction: row;
+
+      @include bp.up($name) {
+        flex-direction: column;
+      }
+    }
+  }
+
+  @each $name in map.keys(bp.$breakpoints) {
+    &-#{$name}-column {
+      flex-direction: column;
+
+      @include bp.up($name) {
+        flex-direction: row;
+      }
+    }
+  }
+}

@@ -1,0 +1,93 @@
+@use "@/shared/styles/abstracts/mixins" as m;
+
+.form {
+  --color-required: inherit;
+  width: min(85vw, 50rem);
+
+  &__content {
+    background: var(--color-primary);
+    gap: var(--size-4);
+  }
+
+  &__body {
+    @include m.flex(column);
+    width: 100%;
+    gap: var(--size-6);
+  }
+
+  &__fieldset {
+    @include m.flex(column, unset);
+    gap: var(--size-4);
+    border: none;
+    width: 100%;
+  }
+
+  &__field {
+    width: 100%;
+  }
+
+  &__legend {
+    width: 100%;
+    margin-block-end: var(--size-4);
+  }
+
+  &__label {
+    @include m.flex(row, center, flex-start);
+  }
+
+  &__inputs {
+    @include m.flex(row, center, space-between);
+    width: 100%;
+    position: relative;
+  }
+
+  &__buttons {
+    background: var(--color-secondary);
+    gap: var(--size-2);
+    margin-block-start: var(--size-8);
+  }
+
+  &__input-wrapper {
+    position: relative;
+    width: 100%;
+  }
+
+  &__input {
+    border-radius: calc(var(--size-2) + 0.2rem);
+    background-color: var(--color-neutral-0);
+    border: 0.1rem solid var(--color-neutral-3);
+    height: clamp(2rem, calc(2rem + 0.5vw), 2.5rem);
+    padding-inline-start: var(--size-2);
+    width: 100%;
+
+    &::placeholder {
+      color: var(--color-neutral-3);
+    }
+
+    &:focus {
+      outline: 0.1rem solid var(--color-neutral-8);
+    }
+
+    &:hover {
+      outline: 0.1rem solid var(--color-neutral-6);
+      cursor: pointer;
+    }
+
+    &--textarea {
+      height: unset;
+      min-height: var(--size-10);
+      padding: 1rem;
+    }
+  }
+
+  &__unit {
+    margin-inline-start: var(--size-2);
+    color: var(--color-required);
+  }
+
+  &__label {
+    @include m.flex(row, center, unset);
+    position: relative;
+    width: 100%;
+  }
+}
