@@ -1,4 +1,10 @@
 @use "@/shared/styles/abstracts/mixins" as m;
+@use "@/shared/styles/abstracts/breakpoints" as bp;
+
+.header {
+  @include m.flex(row, center, space-between);
+  padding: var(--size-2) var(--size-6);
+}
 
 .nav {
   width: 100%;
@@ -18,7 +24,7 @@
   }
 
   &--dialog {
-    width: min(60vw, 20rem);
+    width: 100vw;
     height: 100vh;
     border: none;
     margin-inline-start: auto;
@@ -45,14 +51,18 @@
     width: 100%;
   }
 
+  &__item {
+    list-style: none;
+  }
+
   &__link {
-    letter-spacing: 0.1rem;
     padding-block: calc(var(--size-2) - 0.5rem);
     background: transparent;
     border: none;
+    text-transform: capitalize;
     text-decoration: none;
-    color: var(--color-neutral-4);
-    text-shadow: 0 0 0.2rem var(--color-neutral-0);
+    @include m.flex(row, flex-start, flex-start);
+    width: 100%;
   }
 
   &__index {
@@ -65,17 +75,10 @@
   }
 
   &__logo {
-    width: var(--size-4);
-    height: auto;
+    display: block;
+    width: var(--size-6);
     color: var(--color-neutral-0);
     text-shadow: 0 0 0.2rem var(--color-neutral-0);
-  }
-
-  &__item {
-    @include m.flex(row, flex-start, flex-start);
-    width: 100%;
-    list-style: none;
-    text-align: center;
   }
 
   &__close-button {
@@ -94,7 +97,7 @@
   }
 }
 
-@media screen and (min-width: 768px) {
+@include bp.up(tablet) {
   .nav {
     &--mobile {
       display: none;
@@ -102,7 +105,6 @@
 
     &--desktop {
       @include m.flex(row);
-      gap: var(--size-2);
       width: auto;
     }
 
@@ -112,22 +114,8 @@
 
     &__links {
       flex-direction: row;
-      gap: var(--size-2);
+      gap: var(--size-5);
       width: auto;
-      overflow: hidden;
-    }
-  }
-}
-
-@media screen and (min-width: 1200px) {
-  .nav {
-    &__logo {
-      margin-block: 0;
-    }
-
-    &__links {
-      gap: var(--size-4);
-      border-radius: 10rem 0 0 10rem;
     }
   }
 }

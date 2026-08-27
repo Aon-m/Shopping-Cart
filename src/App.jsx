@@ -1,18 +1,24 @@
-import { NavLink, Outlet } from "react-router";
+import "./shared/styles/main.scss";
+
+import { Outlet } from "react-router";
+import favicon from "../public/favicon.svg";
+
+import NavBar from "./features/NavBar/NavBar";
+import NavBarItem from "./features/NavBar/NavBarItem";
 
 function App() {
   return (
-    <div>
-      <nav>
-        <NavLink to="/home">Home</NavLink>
-        <NavLink to="/shop">Shop</NavLink>
-        <NavLink to="/cart">Cart</NavLink>
-      </nav>
+    <>
+      <NavBar logo={favicon}>
+        <NavBarItem href={"/home"} name={"home"} />
+        <NavBarItem href={"/shop"} name={"shop"} />
+        <NavBarItem href={"/cart"} name={"cart"} />
+      </NavBar>
 
       <main>
         <Outlet />
       </main>
-    </div>
+    </>
   );
 }
 

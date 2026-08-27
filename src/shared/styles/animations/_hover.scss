@@ -33,7 +33,7 @@
     transition: 300ms ease;
   }
 
-  &--selected::before {
+  &.active::before {
     content: "";
     position: absolute;
     bottom: 0;
