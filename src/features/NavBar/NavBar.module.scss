@@ -17,7 +17,6 @@
   &--mobile {
     @include m.flex(column, flex-start);
     position: absolute;
-    background: var(--color-neutral-0);
     gap: var(--size-4);
     height: 100%;
     padding-block-start: var(--size-3);
@@ -28,7 +27,7 @@
     height: 100vh;
     border: none;
     margin-inline-start: auto;
-    background: none;
+    background: var(--color-neutral-0);
 
     &::backdrop {
       background: black;
