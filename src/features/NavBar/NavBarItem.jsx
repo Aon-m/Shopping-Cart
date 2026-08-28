@@ -8,7 +8,7 @@ export default function NavBarItem({
   index = null,
 }) {
   return (
-    <li className={`${styles.nav__item}  text text-400 text-5 text-black`}>
+    <li className={`${styles.nav__item} text text-400 text-5 text-black`}>
       <NavLink
         to={`${href}`}
         state={{ name }}

@@ -1,11 +1,12 @@
-import { useEffect, useState, useRef } from "react";
+import { useEffect, useState, useRef, Children } from "react";
 import styles from "./NavBar.module.scss";
+import injectProps from "@/shared/helpers/injectProps";
 
 export default function NavBar({
   logo,
   children,
   hamburgerIcon = (
-    <svg width={20} height={14} xmlns="http://www.w3.org/2000/svg">
+    <svg viewBox="0 0 20 14" xmlns="http://www.w3.org/2000/svg">
       <path
         d="M20 12v2H0v-2h20zm0-6v2H0V6h20zm0-6v2H0V0h20z"
         fill="currentColor"
@@ -63,6 +64,7 @@ export default function NavBar({
             <div className={styles["nav__logo-wrapper"]}>{domLogo} </div>
 
             <button
+              type="button"
               className={styles["nav__close-button"]}
               aria-label="Close Menu"
               onClick={() => setIsOpen(false)}
@@ -70,10 +72,14 @@ export default function NavBar({
               ×
             </button>
           </div>
-          <ul
-            className={`${styles.nav__links}`}
-          >
-            {children}
+          <ul className={`${styles.nav__links}`}>
+            {Children.map(children, (child) =>
+              injectProps(child, {
+                onClick: () => {
+                  setIsOpen(false);
+                },
+              }),
+            )}
           </ul>
         </nav>
       </dialog>

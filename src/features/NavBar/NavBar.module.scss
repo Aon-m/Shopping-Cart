@@ -3,7 +3,7 @@
 
 .header {
   @include m.flex(row, center, space-between);
-  padding: var(--size-2) var(--size-6);
+  padding: var(--size-4) var(--size-6);
 }
 
 .nav {
@@ -20,7 +20,7 @@
     background: var(--color-neutral-0);
     gap: var(--size-4);
     height: 100%;
-    padding-inline-start: var(--size-4);
+    padding-block-start: var(--size-3);
   }
 
   &--dialog {
@@ -37,13 +37,12 @@
   }
 
   &__hamburger {
-    order: -1;
-    position: absolute;
-    right: var(--size-4);
     cursor: pointer;
     border: none;
     background: transparent;
-    color: var(--color-neutral-3);
+    color: var(--color-neutral-8);
+
+    width: var(--size-5);
   }
 
   &__links {
@@ -52,17 +51,20 @@
   }
 
   &__item {
+    @include m.flex(column);
+    width: 100%;
     list-style: none;
+
+    &:hover {
+      background-color: var(--color-neutral-1);
+    }
   }
 
   &__link {
-    padding-block: calc(var(--size-2) - 0.5rem);
-    background: transparent;
-    border: none;
+    padding: var(--size-2) var(--size-6);
     text-transform: capitalize;
-    text-decoration: none;
-    @include m.flex(row, flex-start, flex-start);
     width: 100%;
+    text-align: center;
   }
 
   &__index {
@@ -75,25 +77,20 @@
   }
 
   &__logo {
-    display: block;
     width: var(--size-6);
-    color: var(--color-neutral-0);
-    text-shadow: 0 0 0.2rem var(--color-neutral-0);
   }
 
   &__close-button {
-    background: none;
-    border: none;
-    color: var(--color-neutral-4);
     cursor: pointer;
+    border: none;
+    background: none;
+
     position: absolute;
     top: var(--size-2);
-    right: var(--size-2);
-    width: var(--size-4);
+    right: var(--size-6);
 
-    &__icon {
-      width: 100%;
-    }
+    font-size: var(--fs-8);
+    aspect-ratio: 1 / 1;
   }
 }
 
@@ -114,7 +111,6 @@
 
     &__links {
       flex-direction: row;
-      gap: var(--size-5);
       width: auto;
     }
   }
