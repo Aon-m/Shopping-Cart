@@ -1,5 +1,5 @@
 import App from "./App";
-import ErrorPage from "./shared/components/ErrorPage/ErrorPage";
+import ErrorPage from "./features/ErrorPage/ErrorPage";
 
 const routes = [
   {

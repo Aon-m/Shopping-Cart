@@ -12,5 +12,3 @@
   - Remove items
   - Sub total
   - Demo checkout system
-- Polish NavBar
-- Polish Error Page

@@ -2,7 +2,7 @@ import { describe, it } from "vitest";
 import userEvent from "@testing-library/user-event";
 import { render, screen } from "@testing-library/react";
 import { createMemoryRouter, RouterProvider } from "react-router";
-import routes from "../../../routes";
+import routes from "@/routes";
 
 function renderAt(url) {
   const router = createMemoryRouter(routes, {
@@ -19,13 +19,11 @@ describe("Navigates", () => {
 
     const router = renderAt("/profile");
 
-    const link = screen.getByRole("link", {
-      name: /return/i,
-    });
+    const link = screen.getByRole("link");
 
     await user.click(link);
 
-    expect(router.state.location.pathname).toBe("/");
+    expect(router.state.location.pathname).toBe("/home");
   });
 
   it("renders error page", () => {
