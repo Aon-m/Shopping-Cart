@@ -23,7 +23,7 @@ describe("Navigates", () => {
 
     await user.click(link);
 
-    expect(router.state.location.pathname).toBe("/home");
+    expect(router.state.location.pathname).toBe("/");
   });
 
   it("renders error page", () => {

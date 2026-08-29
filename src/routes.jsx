@@ -7,7 +7,7 @@ const routes = [
     Component: App,
     errorElement: <ErrorPage />,
     children: [
-      { path: "/home", Component: null },
+      { path: "/", Component: null },
       { path: "/shop", Component: null },
       { path: "/cart", Component: null },
     ],

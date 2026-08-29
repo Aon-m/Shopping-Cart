@@ -63,7 +63,7 @@ describe("NavBar tests", () => {
 
       await user.click(link);
 
-      expect(router.state.location.pathname).toBe("/home");
+      expect(router.state.location.pathname).toBe("/");
     });
 
     it("Navigates to the shop page", async () => {
