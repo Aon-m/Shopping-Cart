@@ -26,13 +26,6 @@
     }
   }
 
-  /* Letter spacing */
-  @for $spacing from 1 through 10 {
-    &-ls-#{$spacing} {
-      letter-spacing: #{$spacing / 50}em;
-    }
-  }
-
   /* Text transform */
   &-uppercase {
     text-transform: uppercase;

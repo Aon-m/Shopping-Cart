@@ -13,7 +13,7 @@ import getClasses from "@/shared/helpers/getClasses";
  * @param {(event: React.MouseEvent<HTMLButtonElement>) => void} [props.onClick]
  */
 export default function Button({
-  content,
+  children,
   type = "button",
   styles = {},
   tooltip,
@@ -21,7 +21,7 @@ export default function Button({
   onPointerEnter,
 }) {
   const {
-    text = "text text-white text-4 text-700",
+    text = "text text-white text-6 text-700",
     button = "button--black button--rectangle",
     other = "",
   } = styles;
@@ -34,7 +34,7 @@ export default function Button({
       onClick={onClick}
       onPointerEnter={onPointerEnter}
     >
-      {content}
+      {children}
     </button>
   );
 }

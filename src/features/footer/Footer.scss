@@ -2,18 +2,11 @@
 @use "@/shared/styles/abstracts/breakpoints" as bp;
 
 .footer {
-  display: grid;
-  grid-template:
-    "logo" auto
-    "links" auto
-    "icons" auto
-    "attribution" auto/ 1fr;
+  @include m.flex(column);
   gap: var(--size-2);
   width: 100%;
   background-color: var(--color-primary);
   padding: var(--size-4);
-  align-items: center;
-  justify-content: center;
 
   &__logo {
     grid-area: logo;
@@ -31,17 +24,16 @@
     @include m.flex(column);
     gap: var(--size-2);
     margin-block-end: var(--size-2);
+    cursor: pointer;
   }
   &__item {
     list-style: none;
-  }
-  &__link {
-    text-decoration: none;
   }
 }
 
 @include bp.up(tablet) {
   .footer {
+    display: grid;
     grid-template:
       "logo links icons" 1fr
       "attribution attribution attribution" auto/ auto 1fr auto;
