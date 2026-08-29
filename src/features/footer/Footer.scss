@@ -10,14 +10,14 @@
     "attribution" auto/ 1fr;
   gap: var(--size-2);
   width: 100%;
-  background-color: var(--color-secondary);
+  background-color: var(--color-primary);
   padding: var(--size-4);
   align-items: center;
   justify-content: center;
 
   &__logo {
     grid-area: logo;
-    color: var(--color-neutral-0);
+    width: var(--size-8);
   }
 
   &__icons {
@@ -29,7 +29,6 @@
   &__links {
     grid-area: links;
     @include m.flex(column);
-    color: var(--color-neutral-0);
     gap: var(--size-2);
     margin-block-end: var(--size-2);
   }

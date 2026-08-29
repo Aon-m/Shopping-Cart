@@ -1,10 +1,14 @@
-import "./Help.scss";
+import styles from "./ToolTIp.module.scss";
 import Button from "@/shared/components/Button/Button";
 import Dialog from "@/shared/components/Dialog/Dialog";
-import ToolTip from "./ToolTip";
 import { useRef } from "react";
 
-export default function Help({ onClick, onHover }) {
+export default function ToolTip({
+  onClick,
+  onHover,
+  children,
+  icon = "ToolTip",
+}) {
   const dialogRef = useRef(null);
 
   function toggleDialog() {
@@ -14,7 +18,7 @@ export default function Help({ onClick, onHover }) {
   return (
     <>
       <Button
-        content="?"
+        content={icon}
         onClick={() => {
           toggleDialog();
           onClick();
@@ -23,7 +27,7 @@ export default function Help({ onClick, onHover }) {
         onPointerEnter={onHover}
         tooltip="Help Button"
         styles={{
-          other: "help-btn",
+          other: styles.btn,
           button: "button--black button--circle",
         }}
       ></Button>
@@ -31,14 +35,11 @@ export default function Help({ onClick, onHover }) {
         modal={false}
         ref={dialogRef}
         styles={{
-          dialog: "help-dialog",
+          dialog: styles.dialog,
         }}
       >
-        <div className="flex flex-column gap-2">
-          <ToolTip>Click the "?" again to close</ToolTip>
-          <ToolTip>Don't click on the same card twice</ToolTip>
-          <ToolTip>Click the Minecraft logo to go back</ToolTip>
-          <ToolTip>Long loading time? Reload the page or check your Wi-Fi</ToolTip>
+        <div className="flex flex-column gap-2 text text-white text-4 text--400 tooltip">
+          {children}
         </div>
       </Dialog>
     </>
