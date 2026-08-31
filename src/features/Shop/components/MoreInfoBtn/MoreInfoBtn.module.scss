@@ -1,0 +1,26 @@
+.dialog {
+  position: absolute;
+  top: 0;
+  left: 0;
+  transform: translate(-100%, -100%);
+
+  border: none;
+  width: min(75vw, 25ch);
+  border-radius: var(--size-3);
+  background: var(--color-neutral-8);
+  padding: var(--size-3);
+}
+
+.tooltip {
+  background: var(--color-neutral-8);
+  border-radius: var(--size-3);
+  padding: var(--size-3);
+}
+
+.btn {
+  width: var(--size-6);
+  aspect-ratio: 1/1;
+  border-radius: var(--size-5);
+  background-color: var(--color-neutral-8);
+  margin-inline-start: auto;
+}

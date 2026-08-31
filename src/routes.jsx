@@ -1,6 +1,7 @@
 import App from "./App";
 import ErrorPage from "./features/ErrorPage/ErrorPage";
 import Home from "./features/Home/Home";
+import Shop from "./features/Shop/Shop";
 
 const routes = [
   {
@@ -9,7 +10,7 @@ const routes = [
     errorElement: <ErrorPage />,
     children: [
       { path: "/", Component: Home },
-      { path: "/shop", Component: null },
+      { path: "/shop", Component: Shop },
       { path: "/cart", Component: null },
     ],
   },

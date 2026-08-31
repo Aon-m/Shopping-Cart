@@ -2,40 +2,24 @@
  * @param {Object} props
  * @param {string|number} props.index
  * @param {string} props.title
- * @param {React.ReactNode} props.textContent
- * @param {React.ReactNode} props.picture
- * @param {React.ReactNode} props.button
+ * @param {React.ReactNode} props.children
  * @param {Object} [props.styles]
  * @param {string} [props.styles.container]
  * @param {string} [props.styles.title]
  */
-export default function Screen({
-  index,
-  title,
-  textContent,
-  picture,
-  button,
-  styles = {},
-}) {
-  const { container = "text text-5", title: titleStyle = "text-7 gap-3" } = styles;
+export default function Screen({ index, title, children, styles = {} }) {
+  const { container = "text text-5", title: titleStyle = "text-7 gap-3" } =
+    styles;
 
   return (
-    <section className={`container ${container}`}>
-      <div className="container__text-content">
-        <h2 className={`container__header ${titleStyle}`}>
-          <span>{index}</span>
-          {title}
-        </h2>
-      </div>
+    <section className={`container container--fullscreen ${container}`}>
+      <h2 className={`container__header ${titleStyle}`}>
+        <span>{index}</span>
+        {title}
+      </h2>
 
       <div className="container__sub-container">
-        <div className="container container--primary">
-          <div className="container__image">{picture}</div>
-          <div className="container__text-content">{textContent}</div>
-          <div className="container__buttons container__buttons--primary">
-            {button}
-          </div>
-        </div>
+        <div className="container container--primary">{children}</div>
       </div>
     </section>
   );
