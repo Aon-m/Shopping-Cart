@@ -22,7 +22,7 @@
   &__links {
     grid-area: links;
     @include m.flex(column);
-    gap: var(--size-2);
+    gap: var(--size-3);
     margin-block-end: var(--size-2);
     cursor: pointer;
   }
@@ -53,6 +53,7 @@
       justify-self: flex-start;
       flex-direction: row;
       margin-inline-start: var(--size-4);
+      gap: var(--size-6);
     }
   }
 }

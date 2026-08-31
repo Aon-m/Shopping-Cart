@@ -3,3 +3,11 @@
 body {
   overflow-x: hidden;
 }
+
+section {
+  margin-block-end: var(--size-5);
+}
+
+footer {
+  margin-block-start: auto;
+}

@@ -1,8 +1,4 @@
 ## To-do
-- Home page
-  - Search btn
-  - Footer
-
 - Shop page with card elements
   - Get some from your card generator from ur old shop
   - fetch form https://fakestoreapi.com/
