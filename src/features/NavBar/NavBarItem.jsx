@@ -10,11 +10,14 @@ export default function NavBarItem({
   return (
     <li className={`${styles.nav__item} text text-400 text-5 text-black`}>
       <NavLink
-        to={`${href}`}
+        to={href}
         state={{ name }}
         onClick={onClick}
+        end={href === "/"}
         className={({ isActive }) =>
-          `${styles.nav__link} underline-hover ${isActive ? "active" : ""}`
+          `${styles.nav__link} ${
+            isActive ? `${styles.active || "active"} active` : ""
+          }`.trim()
         }
       >
         {index !== null && (

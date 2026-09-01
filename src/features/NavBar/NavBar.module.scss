@@ -64,6 +64,14 @@
     text-transform: capitalize;
     width: 100%;
     text-align: center;
+
+    &:hover:not(.active) {
+      background-color: var(--color-neutral-1);
+    }
+
+    &.active {
+      background-color: var(--color-neutral-1);
+    }
   }
 
   &__index {
