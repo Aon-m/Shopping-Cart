@@ -4,7 +4,7 @@
 .container {
   padding-block: var(--size-6);
   position: relative;
-  
+
   &--fullcontainer {
     width: 100%;
     height: 100%;
@@ -20,11 +20,7 @@
   }
   &--grid {
     display: grid;
-    grid-template-columns: repeat(
-      auto-fill,
-      clamp(20rem, calc(20rem + 1vw), 25rem)
-    );
-    justify-content: center;
+    grid-template-columns: repeat(auto-fill, minmax(15rem, 1fr));
   }
   &--fixed {
     background-color: var(--color-primary);

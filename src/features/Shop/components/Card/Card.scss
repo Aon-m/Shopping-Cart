@@ -3,14 +3,14 @@
 
 .card {
   @include m.flex(column);
-  width: clamp(20rem, calc(20rem + 1vw), 30rem);
+  width: 100%;
   position: relative;
 
   &__image {
     width: 100%;
     border-radius: var(--size-4);
     aspect-ratio: 1 / 1;
-    object-fit: cover;
+    object-fit: contain;
     margin-block-start: var(--size-2);
   }
 

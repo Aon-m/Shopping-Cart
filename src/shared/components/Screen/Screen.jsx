@@ -19,7 +19,7 @@ export default function Screen({ index, title, children, styles = {} }) {
       </h2>
 
       <div className="container__sub-container">
-        <div className="container container--primary">{children}</div>
+        <div className="container container--primary wide">{children}</div>
       </div>
     </section>
   );

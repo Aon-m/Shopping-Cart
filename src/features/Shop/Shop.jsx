@@ -1,20 +1,36 @@
+import "./Shop.scss";
+import { useOutletContext } from "react-router";
 import Screen from "@/shared/components/Screen/Screen";
 import Card from "./components/Card/Card";
+import LoadingScreen from "@/shared/components/Loading/LoadingScreen";
+import Button from "@/shared/components/Button/Button";
 
-export default function Shop({ data }) {
-  // data = array of objs with info
+export default function Shop({
+  handleCartBtn,
+  handleDecrementBtn,
+  handleIncrementBtn,
+  handleInput,
+  details, //Use for filter and sorter
+}) {
+  const { fetchedData } = useOutletContext();
+  const { data, error, isPending: loading } = fetchedData;
+
+  let cards = data?.map((obj) => (
+    <Card
+      key={obj.id}
+      data={obj}
+      handleCartBtn={handleCartBtn}
+      handleDecrementBtn={handleDecrementBtn}
+      handleIncrementBtn={handleIncrementBtn}
+      handleInput={handleInput}
+    />
+  ));
+  if (loading) cards = <LoadingScreen />;
+  if (error) cards = <p>Failed to load items</p>;
+
   return (
     <Screen title="Shop">
-      <Card
-        data={{
-          id: 1,
-          title: "Fjallraven - Foldsack No. 1 Backpack, Fits 15 Laptops",
-          price: 109.95,
-          description:
-            "Your perfect pack for everyday use and walks in the forest. Stash your laptop (up to 15 inches) in the padded sleeve, your everyday",
-          category: "men's clothing",
-        }}
-      />
+      <div className="shop__cards container container--grid gap-4">{cards}</div>
     </Screen>
   );
 }
