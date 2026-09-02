@@ -12,6 +12,7 @@ import FooterLink from "./features/Footer/FooterLink";
 import fetcherWithAxios from "./shared/services/fetcherWithAxios";
 
 import { useQuery } from "@tanstack/react-query";
+import { useState } from "react";
 
 const icons = [
   <svg
@@ -56,17 +57,69 @@ function App() {
     queryFn: () => fetcherWithAxios("https://fakestoreapi.com/products"),
     staleTime: 1000 * 60 * 60, // cache for 1h
   });
+  const [cart, setCart] = useState([]);
+
+  const cartQuantity = cart.reduce((total, item) => total + item.quantity, 0);
+
+  function addToCart(obj) {
+    // Check if it exists
+    setCart((currentItems) => {
+      const exists = findItem(currentItems, obj.id);
+
+      // Add quantity if it exists
+      if (exists) {
+        return currentItems.map((currentItem) =>
+          currentItem.id === obj.id
+            ? addQuantity(currentItem, obj.quantity)
+            : currentItem,
+        );
+      }
+
+      return [...currentItems, obj];
+    });
+  }
+  function updateCart(obj) {
+    // Check if it exists
+    setCart((currentItems) => {
+      const exists = findItem(currentItems, obj.id);
+
+      // Exists
+      if (exists) {
+        return currentItems.map((currentItem) =>
+          currentItem.id === obj.id ? obj : currentItem,
+        );
+      }
+
+      return [...currentItems, obj];
+    });
+  }
+  function removeFromCart(id) {
+    setCart((prevItems) => prevItems.filter((item) => item.id !== id));
+  }
 
   return (
     <>
       <NavBar logo={favicon}>
-        <NavBarItem href="/" name="home" />
-        <NavBarItem href="/shop" name="shop" />
-        <NavBarItem href="/cart" name="cart" />
+        <NavBarItem href="/">home</NavBarItem>
+        <NavBarItem href="/shop">shop</NavBarItem>
+        <NavBarItem href="/cart">
+          cart <p className="text-nodecor text-primary">{cartQuantity}</p>
+        </NavBarItem>
       </NavBar>
 
       <main>
-        <Outlet context={{ logo: favicon, fetchedData, details }} />
+        <Outlet
+          context={{
+            logo: favicon,
+            fetchedData,
+            details,
+            cart,
+            cartQuantity,
+            addToCart,
+            updateCart,
+            removeFromCart,
+          }}
+        />
       </main>
 
       <Footer icons={icons} logo={favicon} links={links} />
@@ -75,3 +128,16 @@ function App() {
 }
 
 export default App;
+
+function findItem(items, id) {
+  return items.find((item) => item.id === id);
+}
+
+function addQuantity(item, quantity) {
+  quantity = Number(quantity);
+
+  return {
+    ...item,
+    quantity: item.quantity + quantity,
+  };
+}

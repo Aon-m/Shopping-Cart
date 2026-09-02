@@ -50,7 +50,7 @@
   }
 
   &__item {
-    @include m.flex(column);
+    @include m.flex(row);
     width: 100%;
     list-style: none;
 
@@ -60,7 +60,11 @@
   }
 
   &__link {
+    @include m.flex(row);
+    gap: var(--size-1);
+
     padding: var(--size-2) var(--size-6);
+    text-decoration: none;
     text-transform: capitalize;
     width: 100%;
     text-align: center;

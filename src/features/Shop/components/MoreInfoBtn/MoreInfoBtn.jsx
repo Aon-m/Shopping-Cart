@@ -23,6 +23,7 @@ export default function ToolTip({
         }}
         tooltip="More Info"
         styles={{
+          other: "button--black",
           button: styles.btn,
         }}
       >

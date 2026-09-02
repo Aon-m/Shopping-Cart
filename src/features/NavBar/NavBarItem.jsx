@@ -2,7 +2,7 @@ import { NavLink } from "react-router";
 import styles from "./NavBar.module.scss";
 
 export default function NavBarItem({
-  name,
+  children,
   href,
   onClick = () => {},
   index = null,
@@ -25,7 +25,7 @@ export default function NavBarItem({
             {index}
           </span>
         )}
-        {name}
+        {children}
       </NavLink>
     </li>
   );

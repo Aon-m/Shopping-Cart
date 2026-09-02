@@ -4,6 +4,7 @@
 .card {
   @include m.flex(column);
   width: 100%;
+  height: 100%;
   position: relative;
 
   &__image {

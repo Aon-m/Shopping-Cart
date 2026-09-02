@@ -48,7 +48,7 @@ const Dialog = forwardRef(function Dialog(
   }));
 
   return (
-    <dialog ref={dialogRef} className={`${dialog}`}>
+    <dialog ref={dialogRef} className={`${dialog}`} onCancel={close}>
       {children}
     </dialog>
   );

@@ -69,7 +69,7 @@ export default function Card({ data, handleCartBtn }) {
         <button
           type="button"
           className="button button--white button--rectangle text-black text-5 text-600 flex flex-row gap-1"
-          onClick={() => handleCartBtn(quantity, data)}
+          onClick={() => handleCartBtn(Number(quantity), data)}
         >
           <img src={cart} alt="" aria-hidden="true" className="icon icon--4" />
           Add to Cart
