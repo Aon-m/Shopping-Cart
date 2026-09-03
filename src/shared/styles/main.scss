@@ -1,5 +1,5 @@
 // Abstracts (variables, mixins, functions)
-@use "./abstracts/functions";
+@use "./abstracts/breakpoints";
 @use "./abstracts/mixins" as m;
 @use "./abstracts/variables";
 
@@ -23,5 +23,5 @@
 @use "./utils/text";
 
 :root {
-  --color-primary: var(--color-fun-1);
+  --color-primary: var(--color-accent-1);
 }

@@ -17,7 +17,7 @@ describe("Navigates", () => {
   it("Goes back", async () => {
     const user = userEvent.setup();
 
-    const router = renderAt("/profile");
+    const router = renderAt("/a");
 
     const link = screen.getByRole("link");
 
@@ -27,7 +27,7 @@ describe("Navigates", () => {
   });
 
   it("renders error page", () => {
-    renderAt("/profile");
+    renderAt("/a");
     expect(screen.getByText(/not found/i)).toBeInTheDocument();
   });
 });

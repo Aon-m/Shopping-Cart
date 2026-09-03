@@ -10,9 +10,9 @@ const routes = [
     Component: App,
     errorElement: <ErrorPage />,
     children: [
-      { path: "/", Component: Home },
-      { path: "/shop", Component: Shop },
-      { path: "/cart", Component: Cart },
+      { index: true, Component: Home },
+      { path: "shop", Component: Shop },
+      { path: "cart", Component: Cart },
     ],
   },
 ];
