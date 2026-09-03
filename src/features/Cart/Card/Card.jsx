@@ -1,22 +1,24 @@
 import MoreInfoBtn from "@/features/Shop/components/MoreInfoBtn/MoreInfoBtn";
 import truncate from "./truncate";
-import { useEffect, useState } from "react";
+import { useState } from "react";
+import Button from "@/shared/components/Button/Button";
 
-export default function Card({ data, updateCart }) {
+export default function Card({ data, updateCart, removeItem }) {
   const [quantity, setQuantity] = useState(String(Number(data.quantity)));
 
-  useEffect(() => {
+  const handleQuantityChange = (newQuantity) => {
+    setQuantity(String(newQuantity));
+
     updateCart({
       ...data,
-      quantity: Number(quantity),
+      quantity: newQuantity,
     });
-  }, [quantity, updateCart, data]);
+  };
 
-  const handleIncrement = () => setQuantity((prev) => String(Number(prev) + 1));
+  const handleIncrement = () => handleQuantityChange(Number(quantity) + 1);
   const handleDecrement = () =>
-    setQuantity((prev) => String(Math.max(0, Number(prev) - 1)));
-  const handleInput = (e) => setQuantity(e.target.value);
-
+    handleQuantityChange(Math.max(0, Number(quantity) - 1));
+  const handleInput = (e) => handleQuantityChange(Number(e.target.value));
   const dialogContent = (
     <>
       <h3 className="card__title text-5 text-600">
@@ -71,6 +73,7 @@ export default function Card({ data, updateCart }) {
             +
           </button>
         </div>
+        <Button onClick={() => removeItem(data.id)}>Remove From Cart</Button>
         <MoreInfoBtn
           btnContent="!"
           key={data.id}
