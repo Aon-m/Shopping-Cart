@@ -6,7 +6,7 @@ import favicon from "../public/favicon.svg";
 import NavBar from "./features/NavBar/NavBar";
 import NavBarItem from "./features/NavBar/NavBarItem";
 
-import Footer from "./features/footer/Footer";
+import Footer from "./features/Footer/Footer";
 import FooterLink from "./features/Footer/FooterLink";
 
 import fetcherWithAxios from "./shared/services/fetcherWithAxios";
