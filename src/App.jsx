@@ -3,13 +3,13 @@ import "./shared/styles/main.scss";
 import { Outlet } from "react-router";
 import favicon from "../public/favicon.svg";
 
-import NavBar from "./features/NavBar/NavBar";
-import NavBarItem from "./features/NavBar/NavBarItem";
+import NavBar from "./features/NavBar/NavBar.jsx";
+import NavBarItem from "./features/NavBar/NavBarItem.jsx";
 
-import Footer from "./features/Footer/Footer";
-import FooterLink from "./features/Footer/FooterLink";
+import Footer from "./features/Footer/Footer.jsx";
+import FooterLink from "./features/Footer/FooterLink.jsx";
 
-import fetcherWithAxios from "./shared/services/fetcherWithAxios";
+import fetcherWithAxios from "./shared/services/fetcherWithAxios.jsx";
 
 import { useQuery } from "@tanstack/react-query";
 import { useState } from "react";
