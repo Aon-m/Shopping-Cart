@@ -6,8 +6,8 @@ import favicon from "../public/favicon.svg";
 import NavBar from "./features/NavBar/NavBar.jsx";
 import NavBarItem from "./features/NavBar/NavBarItem.jsx";
 
-import Footer from "./features/Footer/Footer.jsx";
-import FooterLink from "./features/Footer/FooterLink.jsx";
+import Footer from "./features/footer/Footer.jsx";
+import FooterLink from "./features/footer/FooterLink.jsx";
 
 import fetcherWithAxios from "./shared/services/fetcherWithAxios.jsx";
 
